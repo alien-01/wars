@@ -13,9 +13,8 @@ public class Weapon {
 	private int year_creation;
 	private int weight;
 	private int scope;
-	/*@OneToOne
-	@JoinColumn(name="country_fk", nullable=false)*/
-	//private Country country;
+	@ManyToOne
+	private Country country;
 	public Weapon(){
 		
 	}
