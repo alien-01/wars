@@ -8,20 +8,28 @@ Description :
 */
 
 package ch.hevs.businessobject;
-
 import java.sql.Date;
 import java.util.Collection;
+import javax.persistence.*;
 
+@Entity
 public class War {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String name;
 	private Date start;
 	private Date end;
+	@ManyToMany(mappedBy="wars")
+	@OrderBy("name ASC")
 	private Collection <Country> countries;
+	@ManyToMany(mappedBy="wars")
 	private Collection <Weapon> weapons;
 	
 	//Constructor
+	
+	public  War() {} ;
 	
 	public War(String name, Date start, Date end)
 	{

@@ -8,22 +8,34 @@ Description :
 */
 
 package ch.hevs.businessobject;
+import java.util.*;
+import javax.persistence.*;
 
+@Entity
 public class Country {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String name;
-	private int superficie;
-	private String capitale;
+	private int area;
+	private String capital;
 	private int year_foundation;
+	@ManyToMany
+	private Collection <War> wars;
+
+	@OneToMany(mappedBy="country")
+	private Collection <Weapon> weapons;
 	
 	//Constructor
+	
+	public Country(){};
 	
 	public Country(String name, int superficie, String capitale, int year_foundation)
 	{
 		this.name = name;
-		this.superficie = superficie;
-		this.capitale = capitale;
+		this.area = superficie;
+		this.capital = capitale;
 		this.year_foundation = year_foundation;
 	}
 	
@@ -42,17 +54,17 @@ public class Country {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getSuperficie() {
-		return superficie;
+	public int getArea() {
+		return area;
 	}
-	public void setSuperficie(int superficie) {
-		this.superficie = superficie;
+	public void setArea(int area) {
+		this.area = area;
 	}
-	public String getCapitale() {
-		return capitale;
+	public String getCapital() {
+		return capital;
 	}
-	public void setCapitale(String capitale) {
-		this.capitale = capitale;
+	public void setCapital(String capitale) {
+		this.capital = capitale;
 	}
 	public int getYear_foundation() {
 		return year_foundation;
@@ -60,4 +72,33 @@ public class Country {
 	public void setYear_foundation(int year_foundation) {
 		this.year_foundation = year_foundation;
 	}
+	
+	public Collection<War> getWars() {
+		return wars;
+	}
+
+	public void setWars(Collection<War> wars) {
+		this.wars = wars;
+	}
+
+	public Collection<Weapon> getWeapons() {
+		return weapons;
+	}
+
+	public void setWeapons(Collection<Weapon> weapons) {
+		this.weapons = weapons;
+	}
+	
+	//Helpers
+	
+	public boolean addWar(War war)
+	{
+		return this.wars.add(war);
+	}
+	
+	public boolean removeWar(War war)
+	{
+		return this.wars.remove(war);
+	}
+	
 }
