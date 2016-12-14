@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 import ch.hevs.businessobject.Account;
 import ch.hevs.businessobject.Client;
-
+//Mon Commit
 @Stateless
 public class BankBean implements Bank {
 	
