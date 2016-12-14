@@ -9,6 +9,7 @@ Description :
 
 package ch.hevs.businessobject;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.*;
 
@@ -24,7 +25,7 @@ public class War {
 	@ManyToMany(mappedBy="wars")
 	@OrderBy("name ASC")
 	private Collection <Country> countries;
-	@ManyToMany(mappedBy="wars")
+	@OneToMany
 	private Collection <Weapon> weapons;
 	
 	//Constructor
@@ -36,8 +37,8 @@ public class War {
 		this.name = name;
 		this.start = start;
 		this.end = end;
-		countries = new Collection <Country>();
-		weapons = new Collection <Weapon>();
+		countries = new ArrayList <Country>();
+		weapons = new ArrayList <Weapon>();
 	}
 	
 	//Getters and setters
