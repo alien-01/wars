@@ -11,6 +11,8 @@ package ch.hevs.businessobject;
 import java.util.*;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 public class Country {
 	
@@ -24,7 +26,7 @@ public class Country {
 	@ManyToMany
 	private Collection <War> wars;
 
-	@OneToMany(mappedBy="country")
+	@OneToMany(mappedBy="country", cascade = CascadeType.ALL)
 	private Collection <Weapon> weapons;
 	
 	//Constructor

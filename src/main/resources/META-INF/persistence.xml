@@ -7,6 +7,13 @@
 
 	<persistence-unit name="bankPU">
 		<jta-data-source>java:/labsDS</jta-data-source>
+		<class>ch.hevs.businessobject.Country</class>
+		<class>ch.hevs.businessobject.War</class>
+		<class>ch.hevs.businessobject.Weapon</class>
+		<class>ch.hevs.businessobject.Explosive</class>
+		<class>ch.hevs.businessobject.ColdArm</class>
+		<class>ch.hevs.businessobject.FireArm</class>
+
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" /> 
