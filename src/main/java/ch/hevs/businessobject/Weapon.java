@@ -3,6 +3,7 @@ package ch.hevs.businessobject;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Weapon {
 
 	@Id
