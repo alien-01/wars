@@ -23,7 +23,7 @@ public class War {
 	private Date start;
 	private Date end;
 	@ManyToMany(mappedBy="wars")
-	@OrderBy("name ASC")
+	//@OrderBy("name ASC")
 	private Collection <Country> countries;
 	@OneToMany
 	private Collection <Weapon> weapons;

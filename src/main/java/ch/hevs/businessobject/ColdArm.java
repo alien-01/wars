@@ -24,6 +24,4 @@ public class ColdArm extends Weapon {
 	public void setLenght(double lenght) {
 		this.lenght = lenght;
 	}
-	
-	
 }

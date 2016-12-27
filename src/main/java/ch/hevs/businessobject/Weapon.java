@@ -15,6 +15,8 @@ public class Weapon {
 	private int scope;
 	@ManyToOne
 	private Country country;
+	
+	
 	public Weapon(){
 		
 	}
