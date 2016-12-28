@@ -25,4 +25,8 @@ public class Explosive extends Weapon {
 		this.tntEquivalent = tntEquivalent;
 	}
 	
+	public String toString()
+	{
+		return "[Name : "+this.getName()+"] [Scope : "+this.getScope()+"]";
+	}
 }

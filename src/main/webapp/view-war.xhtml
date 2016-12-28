@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+
+		<f:metadata>
+			<f:viewParam name="id" value="#{visitorsBean.warID}" />
+		</f:metadata>
+
+		<div class="panel panel-default col-md-offset-4 col-md-4">
+			<!-- Generate the war based on the ID received in param -->
+			<h:inputHidden value="#{visitorsBean.getWarFromDB()}" />
+			<div class="panel-heading">
+			<h:outputText value="#{visitorsBean.war.name}"></h:outputText>
+			</div>
+			
+			<div class="col-md-6 panel panel-default">
+			<div class="panel-heading">
+			Weapons used
+			</div>
+			<table class="table-stripped">
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Weight</th>
+			<th>Scope</th>
+			<th>Year of creation</th>
+			<th>Cadence</th>
+			<th>Capacity</th>
+			<th>TNT equivalent</th>
+			<th>Length</th>
+			</tr>
+			<!-- TODO: Get all the weapons used in that war -->
+			<ui:repeat var="" value="">
+			
+			</ui:repeat>
+			</table>
+			</div>
+			
+			
+			
+			
+			<div class="panel-body"></div>
+			<div class="panel-footer"></div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+</html>

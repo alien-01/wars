@@ -57,16 +57,16 @@ public class War {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getStart() {
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStart(Date start) {
+	public void setStartDate(Date start) {
 		this.startDate = start;
 	}
-	public Date getEnd() {
+	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEnd(Date end) {
+	public void setEndDate(Date end) {
 		this.endDate = end;
 	}
 	public Collection<Country> getCountries() {

@@ -11,7 +11,11 @@ package ch.hevs.service;
 
 import java.util.List;
 
+import javax.ejb.Local;
+
 import ch.hevs.businessobject.*;
+
+@Local
 public interface HandlerInterface {
 	
 	/***
@@ -39,6 +43,10 @@ public interface HandlerInterface {
 	 */
 	War getWar(int warID);
 	
+	boolean insertExplosive(Explosive explosive);
+	boolean insertColdArm(ColdArm coldArm);
+	boolean insertFireArm(FireArm fireArm);	
+	
 	/***
 	 * Creates a new war.
 	 * @param war
@@ -62,5 +70,6 @@ public interface HandlerInterface {
 	 * @return
 	 */
 	boolean updateWar(int warID, War newWar);
+	
 
 }

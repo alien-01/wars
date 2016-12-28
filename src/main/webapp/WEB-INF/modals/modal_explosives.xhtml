@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<div id="modalExplosive" class="modal fade">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true"></span>
+						</button>
+						<h4 class="modal-title">Add new explosive</h4>
+					</div>
+					<h:form class="form">
+						<div class="modal-body">
+
+							<div class="form-group">
+								<label for="name-weapon">Explosive name</label>
+								<h:inputText class="form-control"
+									value="#{insertWarBean.explosiveToInsert.name}" />
+							</div>
+
+							<div class="form-group">
+								<label for="year-creation">Year of creation</label>
+								<h:inputText
+									onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;"
+									class="form-control" id="year-creation"
+									value="#{insertWarBean.explosiveToInsert.year_creation}">
+								</h:inputText>
+							</div>
+
+							<div class="form-group">
+								<label for="weight-explosive">Weight (gr)</label>
+								<h:inputText
+									onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;"
+									class="form-control"
+									value="#{insertWarBean.explosiveToInsert.weight}">
+								</h:inputText>
+							</div>
+
+							<div class="form-group">
+								<label for="scope-explosive">Scope (m)</label>
+								<h:inputText class="form-control" value="#{insertWarBean.explosiveToInsert.scope}">
+								</h:inputText>
+							</div>
+
+							<div class="form-group">
+								<label for="tnt-equivalent">TNT equivalent</label>
+								<h:inputText class="form-control"
+									value="#{insertWarBean.explosiveToInsert.tntEquivalent}">
+								</h:inputText>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
+							<h:commandButton styleClass="btn btn-success"
+								value="Insérer l'explosif"
+								action="#{insertWarBean.insertExplosive()}"></h:commandButton>
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+</ui:composition>
