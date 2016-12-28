@@ -8,10 +8,13 @@ Description :
 */
 
 package ch.hevs.businessobject;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 public class War {
@@ -20,10 +23,11 @@ public class War {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String name;
+	@Temporal(TemporalType.DATE)
 	private Date start;
+	@Temporal(TemporalType.DATE)
 	private Date end;
 	@ManyToMany(mappedBy="wars")
-	//@OrderBy("name ASC")
 	private Collection <Country> countries;
 	@OneToMany
 	private Collection <Weapon> weapons;
