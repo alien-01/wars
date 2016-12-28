@@ -14,8 +14,6 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Type;
-
 @Entity
 public class War {
 	
@@ -24,9 +22,9 @@ public class War {
 	private int id;
 	private String name;
 	@Temporal(TemporalType.DATE)
-	private Date start;
+	private Date startDate;
 	@Temporal(TemporalType.DATE)
-	private Date end;
+	private Date endDate;
 	@ManyToMany(mappedBy="wars")
 	private Collection <Country> countries;
 	@OneToMany
@@ -39,8 +37,8 @@ public class War {
 	public War(String name, Date start, Date end)
 	{
 		this.name = name;
-		this.start = start;
-		this.end = end;
+		this.startDate = start;
+		this.endDate = end;
 		countries = new ArrayList <Country>();
 		weapons = new ArrayList <Weapon>();
 	}
@@ -60,16 +58,16 @@ public class War {
 		this.name = name;
 	}
 	public Date getStart() {
-		return start;
+		return startDate;
 	}
 	public void setStart(Date start) {
-		this.start = start;
+		this.startDate = start;
 	}
 	public Date getEnd() {
-		return end;
+		return endDate;
 	}
 	public void setEnd(Date end) {
-		this.end = end;
+		this.endDate = end;
 	}
 	public Collection<Country> getCountries() {
 		return countries;
@@ -104,5 +102,10 @@ public class War {
 	public boolean removeWeapon(Weapon weapon)
 	{
 		return this.weapons.remove(weapon);
+	}
+	
+	@PostPersist
+	public void acknowledgePersist() {
+		System.out.println("war persisted!!!");
 	}
 }

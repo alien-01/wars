@@ -68,5 +68,8 @@ public class Weapon {
 		this.scope = scope;
 	}
 	
-	
+	@PostPersist
+	public void acknowledgePersist() {
+		System.out.println("weapon "+this.getClass()+" persisted!!!");
+	}
 }

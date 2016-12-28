@@ -103,4 +103,9 @@ public class Country {
 		return this.wars.remove(war);
 	}
 	
+	@PostPersist
+	public void acknowledgePersist() {
+		System.out.println("country persisted!!!");
+	}
+	
 }
